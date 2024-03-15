@@ -16,7 +16,7 @@ describe('authentication', () => {
     cy.location("pathname").should("include", "/secure");
   });
 
-  it('should success message contains', () => {
+  it('should contain success message', () => {
     cy.get('b').contains('You logged into a secure area!')
   });
 
