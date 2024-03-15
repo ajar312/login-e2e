@@ -8,8 +8,8 @@ describe('authentication', () => {
 
   });
   beforeEach(()=>{
+    cy.login(data.username,data.password);
     cy.visit('/')
-    cy.login(data.username,data.password)
   });
   // Ensure login is successful:
   it('should successfully route to `/secure` path', () => {
@@ -17,7 +17,7 @@ describe('authentication', () => {
   });
 
   it('should contain success message', () => {
-    cy.get('b').contains('You logged into a secure area!')
+    cy.get('b').contains(`You're logged in. Please log out before logging in as a different user`)
   });
 
   it('should header exist on secure page', () => {
